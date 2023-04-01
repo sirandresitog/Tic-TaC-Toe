@@ -147,7 +147,7 @@ export default function TiacTAcToe() {
 		scoreCircle.textContent = '0';
 		scoreCroses.textContent = '0';
   scoreX = 0; 
-  Score0 = 0;
+  score0 = 0;
 	}
 	function restarGame() {
 		currentPlayer = 'X';
