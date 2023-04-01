@@ -4,14 +4,14 @@
 
 //variables
 $primary: #37505e;
-$cell-size: 100%;
 $secondary: #f4c152;
+$blue: #3498db;
+$cell-size: 100%;
 $color-mark: #{color-boder};
 $color-mark-hover: gray;
 $mark-size: 100px * 0.9;
 
 :root {
-	--winning-blocks: #e4e8eb;
 	--cell-size: 100px;
 	--mark-size: calc(var(--cell-size) * 0.9);
 }
@@ -145,15 +145,17 @@ body {
 .score {
 	@include mixinsfun.createflexbox(space-between, row);
 	width: 400px;
-	margin: 2rem;
+	margin: 2rem 2rem 1rem 2rem;
 	@include media-queries.mobile {
 		width: auto;
-		margin: 0;
+		margin: 0.3rem;
 	}
 }
 
 .score-button {
-	padding: 0.3rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 0.3rem 1rem;
 	cursor: pointer;
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
@@ -163,7 +165,8 @@ body {
 	-o-border-radius: 10px;
 
 	&:hover {
-		background: $secondary;
+		background: $blue;
+		color: #fff;
 	}
 
 	@include media-queries.mobile {
@@ -184,6 +187,35 @@ body {
 	padding: 2px;
 	font-size: 1.6rem;
 }
+.clear-board {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 0.2rem 1.8rem;
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+
+	&:hover {
+		background: $blue;
+		color: #fff;
+	}
+
+	@include media-queries.mobile {
+		margin: 10px;
+		font-size: 0.7rem;
+		padding: 9px;
+		border-radius: 8px;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		-o-border-radius: 8px;
+		cursor: none;
+	}
+}
 //============================ Modal Restart =======================
 
 .winning-message {
@@ -203,6 +235,13 @@ body {
 .winning-message-text {
 	font-size: 3rem;
 	padding: 2rem;
+}
+.winning-message.show {
+	display: flex;
+}
+.blur {
+	filter: blur(4px);
+	-webkit-filter: blur(4px);
 }
 // ================= button again =======================
 .button {
@@ -237,13 +276,6 @@ body {
 	-o-transform: scale(1.1);
 }
 
-.winning-message.show {
-	display: flex;
-}
-.blur {
-	filter: blur(4px);
-	-webkit-filter: blur(4px);
-}
 // ============================= footer==============================================
 
 .powerby {

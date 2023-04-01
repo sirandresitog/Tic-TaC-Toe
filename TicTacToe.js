@@ -12,6 +12,7 @@ export default function TiacTAcToe() {
 	const scoreCircle = document.querySelector('.score-circle');
 	const restarBtnScore = document.querySelector('.score-button');
 	const displayContainer = document.querySelector('.container');
+	const clearBoard = document.querySelector('.clear-board');
 
 	const winCondition = [
 		[0, 1, 2],
@@ -44,6 +45,7 @@ export default function TiacTAcToe() {
 		restarBtn.addEventListener('click', restarGame);
 		runnig = true;
 		restarBtnScore.addEventListener('click', resetScoreOnBoard);
+		clearBoard.addEventListener('click', clearBoardClick);
 	}
 	function handleClick(e) {
 		const dataCell = e.target;
@@ -146,8 +148,11 @@ export default function TiacTAcToe() {
 	function resetScoreOnBoard() {
 		scoreCircle.textContent = '0';
 		scoreCroses.textContent = '0';
-  scoreX = 0; 
-  score0 = 0;
+		scoreX = 0;
+		scoreO = 0;
+	}
+	function clearBoardClick() {
+		restarGame();
 	}
 	function restarGame() {
 		currentPlayer = 'X';
@@ -163,7 +168,8 @@ export default function TiacTAcToe() {
 		displayContainer.classList.remove('blur');
 		winningMessageElement.classList.remove('show');
 		runnig = true;
-  circleTurn = null;		statusText.textContent = 'tic tac toe';
+		circleTurn = null;
+		statusText.textContent = 'tic tac toe';
 	}
 	initializeGame();
 }
