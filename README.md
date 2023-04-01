@@ -31,8 +31,10 @@ yarn dev
 > 💻 En computadora
 > <img width ="1200px" src="https://raw.githubusercontent.com/sirandresitog/Tic-TaC-Toe/main/public/img/desktop_TTT.png" alt="Tic tac Toe desktop">
 
-<img width="900px" src="https://raw.githubusercontent.com/sirandresitog/Tic-TaC-Toe/main/public/img/desk.png" alt="Toctac toe desktop 2">
+.
+
+> <img width="900px" src="https://raw.githubusercontent.com/sirandresitog/Tic-TaC-Toe/main/public/img/desk.png" alt="Toctac toe desktop 2">
 
 > 📱En Mobile
 
-<img src="https://raw.githubusercontent.com/sirandresitog/Tic-TaC-Toe/main/public/img/mobile_TTT.png" alt="">
+> <img  width="300px" src="https://raw.githubusercontent.com/sirandresitog/Tic-TaC-Toe/main/public/img/mobile_TTT.png" alt="">
