@@ -146,6 +146,8 @@ export default function TiacTAcToe() {
 	function resetScoreOnBoard() {
 		scoreCircle.textContent = '0';
 		scoreCroses.textContent = '0';
+  scoreX = 0; 
+  Score0 = 0;
 	}
 	function restarGame() {
 		currentPlayer = 'X';
@@ -161,8 +163,6 @@ export default function TiacTAcToe() {
 		displayContainer.classList.remove('blur');
 		winningMessageElement.classList.remove('show');
 		runnig = true;
-  scoreX = 0;
-  Score0 = 0;
 		statusText.textContent = 'tic tac toe';
 	}
 	initializeGame();
