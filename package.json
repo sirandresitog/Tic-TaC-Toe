@@ -1,0 +1,28 @@
+{
+	"name": "tic-tac-toe",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"homepage": "http://sirandresitog.github.io/Tic-Tac-Toe",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"format": "prettier --write .",
+		"lint": "eslint --fix . --ext .js,jsx",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
+	},
+	"devDependencies": {
+		"eslint": "^8.37.0",
+		"eslint-config-standard": "^17.0.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-n": "^15.7.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"vite": "^4.2.0"
+	},
+	"dependencies": {
+		"gh-pages": "^5.0.0",
+		"sass": "^1.60.0"
+	}
+}

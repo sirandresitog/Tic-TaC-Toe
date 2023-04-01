@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/tic-tac-toe.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+			rel="stylesheet" />
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap"
+			rel="stylesheet" />
+
+		<link rel="stylesheet" href="public/Css/main.css" />
+		<title>Tic-Tac-Toe</title>
+	</head>
+	<body>
+		<!-- display tittle -->
+		<div class="container">
+			<h1 class="container__tittle">tic tac toe</h1>
+
+			<!-- board -->
+
+			<div class="board">
+				<div class="cell" cellIndex="0" data-cell></div>
+				<div class="cell" cellIndex="1" data-cell></div>
+				<div class="cell" cellIndex="2" data-cell></div>
+				<div class="cell" cellIndex="3" data-cell></div>
+				<div class="cell" cellIndex="4" data-cell></div>
+				<div class="cell" cellIndex="5" data-cell></div>
+				<div class="cell" cellIndex="6" data-cell></div>
+				<div class="cell" cellIndex="7" data-cell></div>
+				<div class="cell" cellIndex="8" data-cell></div>
+			</div>
+			<!-- score -->
+			<div class="score">
+				<div>Croses:<span class="score-croses"> 0</span></div>
+				<button class="score-button" type="button">Restart</button>
+				<div>Circles:<span class="score-circle"> 0</span></div>
+			</div>
+
+			<!-- footer -->
+			<div class="footer">
+				<a
+					class="powerby"
+					href="https://github.com/sirandresitog"
+					rel="nofollow noopener noreferrer"
+					><i class="fa-brands fa-github git_icon"> </i>PowerBy : @sirandresitog
+				</a>
+			</div>
+		</div>
+		<!-- winning message -->
+		<div class="winning-message" id="winningMessage">
+			<div data-winning-message-text class="winning-message-text"></div>
+			<div class="container__restartBtn button" ontouchstart="">
+				<div class="button__text" type="button">Again!</div>
+			</div>
+		</div>
+		<script type="module" src="/main.js"></script>
+		<script
+			src="https://kit.fontawesome.com/a8d40ebac9.js"
+			crossorigin="anonymous"></script>
+	</body>
+</html>

@@ -1,0 +1,273 @@
+@use 'normalize';
+@use 'mixinsfun';
+@use 'media-queries';
+
+//variables
+$primary: #37505e;
+$cell-size: 100%;
+$secondary: #f4c152;
+$color-mark: #{color-boder};
+$color-mark-hover: gray;
+$mark-size: 100px * 0.9;
+
+:root {
+	--winning-blocks: #e4e8eb;
+	--cell-size: 100px;
+	--mark-size: calc(var(--cell-size) * 0.9);
+}
+// styles container Tic-Tac -->
+body {
+	background-color: #{$primary};
+	font-family: 'Finger Paint', cursive;
+}
+// ====================Container =========================
+.container {
+	@include mixinsfun.createflexbox(center, column);
+	color: #fff;
+
+	&__tittle {
+		width: 100vw;
+		text-transform: uppercase;
+		font-size: 4rem;
+		margin-top: 2rem;
+		@include media-queries.mobile {
+			font-size: xx-large;
+		}
+	}
+}
+// ========================Boards =================
+
+.board {
+	width: 100vw;
+	height: auto;
+	display: grid;
+	font-family: 'Raleway', sans-serif;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+	grid-template-columns: repeat(3, auto);
+	@include media-queries.mobile {
+	}
+}
+// ============================Cell==========================
+
+.cell {
+	width: var(--cell-size);
+	height: var(--cell-size);
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+	border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+	border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+	border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+	border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+	cursor: not-allowed;
+}
+
+.cell.x::before,
+.cell.x::after,
+.cell.circle::before {
+	background-color: $secondary;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+	background-color: lightgrey;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+	content: '';
+	position: absolute;
+	width: calc(var(--mark-size) * 0.15);
+	height: var(--mark-size);
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+	transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+	transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+	width: var(--mark-size);
+	height: var(--mark-size);
+}
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+	width: calc(var(--mark-size) * 0.7);
+	height: calc(var(--mark-size) * 0.7);
+	background-color: $primary;
+}
+// ===========================Score=========================
+.score {
+	@include mixinsfun.createflexbox(space-between, row);
+	width: 400px;
+	margin: 2rem;
+	@include media-queries.mobile {
+		width: auto;
+		margin: 0;
+	}
+}
+
+.score-button {
+	padding: 0.3rem;
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+
+	&:hover {
+		background: $secondary;
+	}
+
+	@include media-queries.mobile {
+		margin: 10px;
+		font-size: 0.7rem;
+		padding: 9px;
+		border-radius: 8px;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		-o-border-radius: 8px;
+		cursor: none;
+	}
+}
+.score-croses,
+.score-circle {
+	margin: 2px;
+	padding: 2px;
+	font-size: 1.6rem;
+}
+//============================ Modal Restart =======================
+
+.winning-message {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.9);
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 2rem;
+	flex-direction: column;
+}
+.winning-message-text {
+	font-size: 3rem;
+	padding: 2rem;
+}
+// ================= button again =======================
+.button {
+	position: relative;
+	display: inline-block;
+	margin: 20px;
+	cursor: pointer;
+}
+
+.button__text {
+	color: white;
+	font-weight: bold;
+	font-size: 36px;
+	text-align: center;
+	text-decoration: none;
+	background-color: #ffa12b;
+	display: block;
+	position: relative;
+	padding: 20px 40px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+.button__text:hover {
+	background-color: #37505e;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+.winning-message.show {
+	display: flex;
+}
+.blur {
+	filter: blur(4px);
+	-webkit-filter: blur(4px);
+}
+// ============================= footer==============================================
+
+.powerby {
+	color: white;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 1.3rem;
+}
+.git_icon {
+	padding: 10px;
+	font-size: larger;
+	color: darkblue;
+	background-color: white;
+	margin: 10px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	&:hover {
+		background: #000;
+		color: white;
+	}
+}
+.footer {
+	margin-top: 2rem;
+}
