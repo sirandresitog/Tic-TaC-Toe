@@ -163,7 +163,7 @@ export default function TiacTAcToe() {
 		displayContainer.classList.remove('blur');
 		winningMessageElement.classList.remove('show');
 		runnig = true;
-		statusText.textContent = 'tic tac toe';
+  circleTurn = null;		statusText.textContent = 'tic tac toe';
 	}
 	initializeGame();
 }
