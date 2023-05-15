@@ -23,6 +23,7 @@
 	},
 	"dependencies": {
 		"gh-pages": "^5.0.0",
+		"js-confetti": "^0.11.0",
 		"sass": "^1.60.0"
 	}
 }

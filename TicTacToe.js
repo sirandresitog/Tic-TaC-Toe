@@ -1,3 +1,4 @@
+import JSConfetti from 'js-confetti';
 export default function TiacTAcToe() {
 	const cells = document.querySelectorAll('.cell');
 	const statusText = document.querySelector('.container__tittle');
@@ -13,7 +14,8 @@ export default function TiacTAcToe() {
 	const restarBtnScore = document.querySelector('.score-button');
 	const displayContainer = document.querySelector('.container');
 	const clearBoard = document.querySelector('.clear-board');
-
+	const jsConfetti = new JSConfetti();
+	const canvas = document.getElementById('confetti');
 	const winCondition = [
 		[0, 1, 2],
 		[3, 4, 5],
@@ -31,8 +33,22 @@ export default function TiacTAcToe() {
 	let currentPlayer = 'X';
 	let runnig = false;
 	let cellsWIn = null;
-	let scoreX = 0;
-	let scoreO = 0;
+	let scoreX = localStorage.getItem('scoreX')
+		? localStorage.getItem('scoreX')
+		: 0;
+	let scoreO = localStorage.getItem('scoreO')
+		? localStorage.getItem('scoreO')
+		: 0;
+	console.log(scoreO);
+	console.log(scoreX);
+
+	if (scoreX == 0 && scoreO == 0) {
+		scoreCroses.textContent = '0';
+		scoreCircle.textContent = '0';
+	} else {
+		scoreCroses.textContent = scoreX;
+		scoreCircle.textContent = scoreO;
+	}
 
 	function initializeGame() {
 		cells.forEach(cell => {
@@ -122,6 +138,11 @@ export default function TiacTAcToe() {
 			} Wins!`;
 			winningMessageElement.classList.add('show');
 			displayContainer.classList.add('blur');
+			canvas.classList.add('show');
+			jsConfetti.addConfetti({
+				canvas,
+				emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸', '🧸', '🪅', '💥'],
+			});
 			runnig = false;
 		} else if (!options.includes('')) {
 			winningMessageTextElement.innerText = `Draw!`;
@@ -133,8 +154,10 @@ export default function TiacTAcToe() {
 	function incrementScore(e) {
 		if (e == 'O') {
 			scoreX++;
+			localStorage.setItem('scoreX', scoreX.toString());
 		} else {
 			scoreO++;
+			localStorage.setItem('scoreO', scoreO.toString());
 		}
 	}
 	function updateScoreOnBoard() {
@@ -148,8 +171,8 @@ export default function TiacTAcToe() {
 	function resetScoreOnBoard() {
 		scoreCircle.textContent = '0';
 		scoreCroses.textContent = '0';
-		scoreX = 0;
-		scoreO = 0;
+		localStorage.setItem('scoreX', '0');
+		localStorage.setItem('scoreO', '0');
 	}
 	function clearBoardClick() {
 		restarGame();

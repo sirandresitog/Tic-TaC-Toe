@@ -18,7 +18,7 @@ Use a more readable tab size (opinionated).
 html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
-  tab-size: 4;
+     tab-size: 4;
 }
 
 /**
@@ -70,7 +70,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 abbr[title] {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /**
@@ -272,7 +272,6 @@ body {
   color: #fff;
   height: 100vh;
 }
-
 .container__tittle {
   width: 100vw;
   text-transform: uppercase;
@@ -280,7 +279,6 @@ body {
   padding-top: 2rem;
   margin-top: 2rem;
 }
-
 @media screen and (max-width: 576px) {
   .container__tittle {
     margin-top: 2rem;
@@ -292,6 +290,7 @@ body {
     font-size: 3rem;
   }
 }
+
 .board {
   width: 100vw;
   height: auto;
@@ -303,7 +302,6 @@ body {
   align-items: center;
   grid-template-columns: repeat(3, auto);
 }
-
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
@@ -403,7 +401,6 @@ body {
   width: 400px;
   margin: 3rem 2rem 1rem 2rem;
 }
-
 @media screen and (max-width: 576px) {
   .score {
     width: auto;
@@ -411,6 +408,7 @@ body {
     margin-top: 2rem;
   }
 }
+
 .reset {
   display: flex;
   align-items: center;
@@ -432,12 +430,10 @@ body {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-
 .score-button:hover {
   background: #3498db;
   color: #fff;
 }
-
 @media screen and (max-width: 576px) {
   .score-button {
     margin: 10px;
@@ -451,6 +447,7 @@ body {
     cursor: none;
   }
 }
+
 .score-croses,
 .score-circle {
   margin: 2px;
@@ -471,12 +468,10 @@ body {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 }
-
 .clear-board:hover {
   background: #3498db;
   color: #fff;
 }
-
 @media screen and (max-width: 576px) {
   .clear-board {
     margin: 10px;
@@ -490,6 +485,7 @@ body {
     cursor: none;
   }
 }
+
 .winning-message {
   display: none;
   position: fixed;
@@ -585,7 +581,6 @@ body {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-
 .git_icon:hover {
   background: #000;
   color: white;
@@ -595,6 +590,4 @@ body {
   margin-top: 3.4rem;
   width: 100%;
   height: 100px;
-} 
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
